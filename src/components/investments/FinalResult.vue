@@ -27,6 +27,7 @@ export default {
     },
     created() {
         this.result = (this.depositValue * this.amountValue) + this.initialValue
+        
         EventBus.$on('resultCalc',(result) => {
             this.result = result
         })
