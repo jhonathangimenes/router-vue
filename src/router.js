@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Contatos from './views/contatos/Contatos.vue'
-import ContatoDetalhe from './views/contatos/ContatoDetalhe.vue'
 import Home from './views/Home.vue'
-import ContatoEditar from './views/contatos/ContatoEditar.vue'
+import Investments from './views/investments/Investments.vue'
+import InvestmentCalculation from './views/investments/InvestmentCalculation.vue'
+import InvestmentResult from './views/investments/InvestmentResult.vue'
 
 Vue.use(VueRouter)
 
@@ -12,18 +12,21 @@ export default new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
   routes: [
-    { path: '/', component: Home },
     { 
-      path: '/contatos', 
-        component: Contatos, 
-        children: [
-          { path: ':id', component: ContatoDetalhe, name: 'contato' },
-          { path: ':id/editar', components: {
-            default: ContatoEditar,
-            'contato-detalhes': ContatoDetalhe
-          } 
-        }
-      ] 
+      path: '/', 
+      component: Home 
     },
+    { 
+      path:'/investments', 
+      component: Investments
+    },
+    {
+      path: '/investments/:id', 
+      component: InvestmentCalculation 
+    },
+    {
+      path: '/result/:initialDeposit/:monthlyDeposit/:amount', 
+      component: InvestmentResult
+    }
   ]
 })

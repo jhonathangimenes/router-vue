@@ -1,5 +1,4 @@
 <template>
-    <div>
-        <h3 class="font-weight-light">Home</h3>
-    </div>
+    <h3>home</h3>
 </template>
+
